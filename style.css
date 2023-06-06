@@ -43,15 +43,25 @@ a:visited {
 /* SIDEBAR */
 
 .sidebar {
-  flex-basis: 50rem;
+  flex-basis: 39rem;
   background-color: var(--color-dark--1);
   padding: 3rem 5rem 4rem 5rem;
   display: flex;
   flex-direction: column;
 }
+
+#section {
+  display: flex;
+  width: 100vw;
+  /*  flex-direction: column; */
+}
+
 @media screen and (max-width: 500px) {
   .sidebar {
-    height: 350px;
+    height: 50px;
+  }
+  #section {
+    flex-direction: column;
   }
 }
 
@@ -200,7 +210,6 @@ button {
 /* MAP */
 
 #map {
-  display: block;
   flex: 1;
   background-color: var(--color-light--1);
 }
