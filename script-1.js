@@ -111,7 +111,7 @@ class App {
       navigator.geolocation.getCurrentPosition(
         this._LoadMap.bind(this),
         function () {
-          alert('Not work');
+          alert('Not work / internet connection');
         }
       );
   }
