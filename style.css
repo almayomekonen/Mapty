@@ -43,7 +43,8 @@ a:visited {
 /* SIDEBAR */
 
 .sidebar {
-  flex-basis: 39rem;
+  width: 44vw;
+  height: 92.8vh;
   background-color: var(--color-dark--1);
   padding: 3rem 5rem 4rem 5rem;
   display: flex;
@@ -58,7 +59,8 @@ a:visited {
 
 @media screen and (max-width: 500px) {
   .sidebar {
-    height: 50px;
+    width: 100vw;
+    height: 45vh;
   }
   #section {
     flex-direction: column;
