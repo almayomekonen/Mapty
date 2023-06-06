@@ -57,9 +57,9 @@ a:visited {
   /*  flex-direction: column; */
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) and (min-width: 100px) {
   .sidebar {
-    width: 88vw;
+    width: 90vw;
     height: 45vh;
   }
   #section {
