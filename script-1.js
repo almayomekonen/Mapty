@@ -96,10 +96,12 @@ class App {
     this._getLocalStorage();
 
     // Event Handlers
+    containerWorkouts.addEventListener('click', this._deleteWorkout.bind(this)); // event for delete btn
+
     document
       .querySelector('#submitBtn')
-      .addEventListener('click', this._newWorkout.bind(this));
-    form.addEventListener('submit', this._newWorkout.bind(this));
+      .addEventListener('click', this._newWorkout.bind(this)); // event For The Go btn
+    form.addEventListener('submit', this._newWorkout.bind(this)); // event For The submit(enter)
     inputType.addEventListener('change', this._toggleElevetionField);
     containerWorkouts.addEventListener('click', this._MoveToPopup.bind(this));
   }
@@ -235,6 +237,28 @@ class App {
       .openPopup();
   }
 
+  // Delete workout
+  _deleteWorkout(e) {
+    const deleteButton = e.target.closest('.workout');
+    if (!deleteButton) return;
+
+    const workoutId = deleteButton.dataset.id;
+    const workoutIndex = this.#workouts.findIndex(
+      workout => workout.id === workoutId
+    );
+
+    if (workoutIndex !== -1) {
+      // Remove the workout from the array
+      this.#workouts.splice(workoutIndex, 1);
+
+      // Remove the workout from the UI
+      deleteButton.remove();
+
+      // Update local storage
+      this._setLocalStorage();
+    }
+  }
+
   _renderWorkout(workout) {
     let html = `
 
@@ -286,7 +310,7 @@ class App {
 
     html += `
     <div class="fixedButtons">
-    <button class="deleteButton">Delete</button>
+    <button class="deleteButton" data-id="${workout.id}">Delete</button>
     <button>Edit</button>
     <button class="deleteAll"> Delete <span id="hideWord">All</span></button>
     </div>
