@@ -82,7 +82,6 @@ const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 
-
 class App {
   #map;
   #mapZoomLevel = 13;
@@ -97,6 +96,9 @@ class App {
     this._getLocalStorage();
 
     // Event Handlers
+    document
+      .querySelector('#submitBtn')
+      .addEventListener('click', this._newWorkout.bind(this));
     form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevetionField);
     containerWorkouts.addEventListener('click', this._MoveToPopup.bind(this));
@@ -286,7 +288,7 @@ class App {
     <div class="fixedButtons">
     <button class="deleteButton">Delete</button>
     <button>Edit</button>
-    <button>Delete All</button>
+    <button> Delete <span id="hideWord">All</span></button>
     </div>
   </li>
   `;
