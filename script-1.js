@@ -97,7 +97,6 @@ class App {
 
     // Event Handlers
     containerWorkouts.addEventListener('click', this._deleteWorkout.bind(this)); // event for delete btn
-
     document
       .querySelector('#submitBtn')
       .addEventListener('click', this._newWorkout.bind(this)); // event For The Go btn
@@ -312,7 +311,7 @@ class App {
     <div class="fixedButtons">
     <button class="deleteButton" data-id="${workout.id}">Delete</button>
     <button>Edit</button>
-    <button class="deleteAll"> Delete <span id="hideWord">All</span></button>
+    <button class="deleteAll"> Delete All</button>
     </div>
   </li>
   `;

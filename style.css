@@ -58,22 +58,30 @@ a:visited {
 }
 
 @media screen and (max-width: 500px) and (min-width: 200px) {
-  .deleteAll {
-    display: none;
+  .form__row {
+    display: flex;
+    flex-direction: column-reverse;
   }
-  #hideWord {
-    display: none;
+  .workout__title {
+    text-align: center;
   }
+  .workout__value {
+    margin-left: 10px;
+  }
+
   .workouts {
+    padding: 5px 2px;
     height: 300px;
   }
   .workout__details {
     display: flex;
     flex-direction: column;
     flex-direction: column-reverse;
-    padding: 9px;
+    padding-bottom: 14px;
   }
-
+  .deleteAll {
+    display: none;
+  }
   .sidebar {
     width: 87.5vw;
     height: 45vh;
