@@ -288,7 +288,7 @@ class App {
     <div class="fixedButtons">
     <button class="deleteButton">Delete</button>
     <button>Edit</button>
-    <button> Delete <span id="hideWord">All</span></button>
+    <button class="deleteAll"> Delete <span id="hideWord">All</span></button>
     </div>
   </li>
   `;
