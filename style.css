@@ -61,12 +61,14 @@ a:visited {
   #hideWord {
     display: none;
   }
-
+  .workouts {
+    height: 300px;
+  }
   .workout__details {
     display: flex;
-    flex-basis: 50rem;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    flex-direction: column-reverse;
+    padding: 7px;
   }
 
   .sidebar {
