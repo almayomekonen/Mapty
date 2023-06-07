@@ -265,16 +265,16 @@ button {
 }
 button {
   font-weight: bold;
-  font-size: 20px;
-  width: 100px;
+  font-size: 15px;
+  width: 65px;
 }
 .fixedButtons {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 30px;
   margin-bottom: 20px;
 }
 #submitBtn {
   position: relative;
-  left: 7.5rem;
+  left: 7rem;
 }

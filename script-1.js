@@ -83,10 +83,10 @@ const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
 
 class App {
-  #map;
-  #mapZoomLevel = 13;
-  #mapEvent;
-  #workouts = [];
+  map;
+  mapZoomLevel = 13;
+  mapEvent;
+  workouts = [];
 
   constructor() {
     // Get users Positions
@@ -96,7 +96,7 @@ class App {
     this._getLocalStorage();
 
     // Event Handlers
-    containerWorkouts.addEventListener('click', this._deleteWorkout.bind(this)); // event for delete btn
+
     document
       .querySelector('#submitBtn')
       .addEventListener('click', this._newWorkout.bind(this)); // event For The Go btn
@@ -122,22 +122,22 @@ class App {
 
     const coords = [latitude, longitude];
 
-    this.#map = L.map('map').setView(coords, this.#mapZoomLevel);
+    this.map = L.map('map').setView(coords, this.mapZoomLevel);
 
     L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-    }).addTo(this.#map);
+    }).addTo(this.map);
 
     // handling clicks on The map
-    this.#map.on('click', this._ShowForm.bind(this));
-    this.#workouts.forEach(work => {
+    this.map.on('click', this._ShowForm.bind(this));
+    this.workouts.forEach(work => {
       this._renderWorkoutMarker(work);
     });
   }
 
   _ShowForm(mapE) {
-    this.#mapEvent = mapE;
+    this.mapEvent = mapE;
     form.classList.remove('hidden');
     inputDistance.focus();
   }
@@ -171,7 +171,7 @@ class App {
     const type = inputType.value;
     const distance = +inputDistance.value;
     const duration = +inputDuration.value;
-    const { lat, lng } = this.#mapEvent.latlng;
+    const { lat, lng } = this.mapEvent.latlng;
     let workout;
 
     // check if data is valid
@@ -203,7 +203,7 @@ class App {
       workout = new Cycling([lat, lng], distance, duration, elevation);
     }
     // add new object to workout Array
-    this.#workouts.push(workout);
+    this.workouts.push(workout);
 
     // render workout on map as a marker
     this._renderWorkoutMarker(workout);
@@ -219,7 +219,7 @@ class App {
   }
   _renderWorkoutMarker(workout) {
     L.marker(workout.coords)
-      .addTo(this.#map)
+      .addTo(this.map)
       .bindPopup(
         L.popup({
           maxWidth: 290,
@@ -234,28 +234,6 @@ class App {
         `${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'} ${workout.description}`
       )
       .openPopup();
-  }
-
-  // Delete workout
-  _deleteWorkout(e) {
-    const deleteButton = e.target.closest('.workout');
-    if (!deleteButton) return;
-
-    const workoutId = deleteButton.dataset.id;
-    const workoutIndex = this.#workouts.findIndex(
-      workout => workout.id === workoutId
-    );
-
-    if (workoutIndex !== -1) {
-      // Remove the workout from the array
-      this.#workouts.splice(workoutIndex, 1);
-
-      // Remove the workout from the UI
-      deleteButton.remove();
-
-      // Update local storage
-      this._setLocalStorage();
-    }
   }
 
   _renderWorkout(workout) {
@@ -315,7 +293,6 @@ class App {
     </div>
   </li>
   `;
-
     form.insertAdjacentHTML('afterend', html);
   }
 
@@ -323,11 +300,11 @@ class App {
     const workoutEl = e.target.closest('.workout');
     if (!workoutEl) return;
 
-    const workout = this.#workouts.find(
+    const workout = this.workouts.find(
       work => work.id === workoutEl.dataset.id
     );
 
-    this.#map.setView(workout.coords, this.#mapZoomLevel, {
+    this.map.setView(workout.coords, this.mapZoomLevel, {
       animate: true,
       pan: { duration: 1 },
     });
@@ -337,15 +314,15 @@ class App {
   }
 
   _setLocalStorage() {
-    localStorage.setItem('workouts', JSON.stringify(this.#workouts));
+    localStorage.setItem('workouts', JSON.stringify(this.workouts));
   }
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('workouts'));
 
     if (!data) return;
 
-    this.#workouts = data;
-    this.#workouts.forEach(work => {
+    this.workouts = data;
+    this.workouts.forEach(work => {
       this._renderWorkout(work);
     });
   }
