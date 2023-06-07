@@ -60,21 +60,67 @@ a:visited {
   display: flex;
   justify-content: center;
 }
+.workouts__delete-all {
+  font-weight: bold;
+  background-color: #90ee90c4;
+  color: black;
+  margin: 10px;
+}
+.workouts__listButton {
+  display: block;
+  height: 30px;
+  width: 100px;
+  font-weight: bold;
+  background-color: #90ee90c4;
+  color: black;
+  border: 2px solid white;
+  margin-top: 9.9px;
+}
+.workouts__delete-all {
+  padding: 5px;
+  font-weight: bold;
+  background-color: #90ee90c4;
+  color: black;
+  border: 2px solid white;
+}
+.hidden__list {
+  display: none;
+}
+.h1 {
+  text-align: center;
+  color: white;
+}
+.description {
+  text-align: center;
+}
+
 @media screen and (max-width: 500px) and (min-width: 200px) {
-  .workouts__delete-all {
-    padding: 5px;
+  .description {
+    text-align: center;
+  }
+  .workouts__listButton {
+    height: 30.5px;
     font-weight: bold;
     background-color: #90ee90c4;
     color: black;
+    border: 2px solid white;
+    margin-top: 9px;
+  }
+  .workouts__delete-all {
+    font-weight: bold;
+    background-color: #90ee90c4;
+    color: black;
+    border: 2px solid white;
+  }
+  .centerDeleteAllButton {
+    display: grid;
+    grid-template-columns: repeat(2, 90px);
   }
   a {
     display: block;
     padding: 7px;
   }
-  .centerDeleteAllButton {
-    display: flex;
-    justify-content: center;
-  }
+
   .form__row {
     display: flex;
     flex-direction: column-reverse;

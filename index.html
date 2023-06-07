@@ -30,9 +30,13 @@
   </head>
 
   <body>
+
     <section id="section">
+     
       <div class="sidebar">
         <img src="logo.png" alt="Logo" class="logo" />
+
+         
 
         <ul class="workouts">
           <form class="form hidden">
@@ -51,6 +55,7 @@
                 placeholder="km"
               />
             </div>
+            
             <div class="form__row">
               <label class="form__label">Duration</label>
 
@@ -79,6 +84,10 @@
 
           <div class="Gobutton"> <button  type="button" id="submitBtn">Go</button> </div> 
           </form>
+         <table class="workouts__list hidden__list">
+         <tbody id="workoutsTableBody">
+         </tbody>
+         </table>
         </ul>
 
         <p class="copyright">
@@ -89,14 +98,20 @@
             href="//github.com/almayomekonen"
             >Almayo Mekonen Workout-App</a
           >
-          
            <div class="centerDeleteAllButton">
           <button class="workouts__delete-all">Delete</button>
+       <button class="workouts__listButton">workouts List</button>
         </div>
         </p>
       </div>
       <div id="map"></div>
     </section>
+    <!-- --------------------------- -->
+    
+       
+        
+     
+<!-- --------------------------------- -->
     <script defer src="script-1.js"></script>
   </body>
 </html>

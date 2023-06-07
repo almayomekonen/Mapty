@@ -81,7 +81,8 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
-
+const Workoutlistbutton = document.querySelector('.workouts__listButton');
+const Workouts = document.querySelector('.workouts__list');
 class App {
   map;
   mapZoomLevel = 13;
@@ -96,6 +97,9 @@ class App {
     this._getLocalStorage();
 
     // Event Handlers
+    Workoutlistbutton.addEventListener('click', function () {
+      Workouts.classList.toggle('hidden__list');
+    });
     document
       .querySelector('.workouts__delete-all')
       .addEventListener('click', this._deleteAllWorkouts.bind(this));
@@ -308,14 +312,27 @@ class App {
       </div>
         </li>`;
 
-    /* html += `
-    <div class="fixedButtons">
-    <button class="deleteButton" data-id="${workout.id}">Delete</button>
-    <button>Edit</button>
-    <button class="deleteAll"> Delete All</button>
+    const tablebody = document.getElementById('workoutsTableBody');
+    let moreHtml = `
+    <div class="centerListworkouts">
+    <td class="description">${workout.description} </td>
+    <tr class="workout workout--${workout.type}" data-id="${workout.id}">
+     
+      <td> 🏃‍♂️ ${workout.distance} km </td>
+      <td> ⏱ ${workout.duration} Min</td>
+      <td> ⚡️${
+        workout.type === 'running'
+          ? workout.pace.toFixed(1)
+          : workout.speed.toFixed(1)
+      }</td>
+      <td> 
+     🦶🏼 ${
+       workout.type === 'running' ? workout.cadence : workout.elevetionGain
+     } spm  </td>
+    </tr> 
     </div>
-    </li>
-`; */
+    `;
+    tablebody.insertAdjacentHTML('beforeend', moreHtml);
 
     form.insertAdjacentHTML('afterend', html);
   }
