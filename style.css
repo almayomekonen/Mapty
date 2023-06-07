@@ -65,6 +65,7 @@ a:visited {
     padding: 5px;
     font-weight: bold;
     background-color: #90ee90c4;
+    color: black;
   }
   a {
     display: block;
@@ -288,9 +289,11 @@ button {
 } */
 
 #submitBtn {
-  width: 40px;
+  width: 50px;
+  padding: 2px;
   position: relative;
   left: 7.4rem;
   font-weight: bold;
   background-color: #90ee90c4;
+  color: black;
 }

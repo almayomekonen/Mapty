@@ -122,6 +122,8 @@ class App {
 
     // Clear local storage
     this._setLocalStorage();
+
+    location.reload();
   }
 
   _getPosition() {
