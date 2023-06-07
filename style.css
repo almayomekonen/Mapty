@@ -56,8 +56,15 @@ a:visited {
   width: 100vw;
   /*  flex-direction: column; */
 }
-
+.centerDeleteAllButton {
+  display: flex;
+  justify-content: center;
+}
 @media screen and (max-width: 500px) and (min-width: 200px) {
+  .centerDeleteAllButton {
+    display: flex;
+    justify-content: center;
+  }
   .form__row {
     display: flex;
     flex-direction: column-reverse;

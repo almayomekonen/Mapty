@@ -96,6 +96,9 @@ class App {
     this._getLocalStorage();
 
     // Event Handlers
+    document
+      .querySelector('.workouts__delete-all')
+      .addEventListener('click', this._deleteAllWorkouts.bind(this));
 
     document
       .querySelector('#submitBtn')
@@ -103,6 +106,22 @@ class App {
     form.addEventListener('submit', this._newWorkout.bind(this)); // event For The submit(enter)
     inputType.addEventListener('change', this._toggleElevetionField);
     containerWorkouts.addEventListener('click', this._MoveToPopup.bind(this));
+  }
+
+  _deleteAllWorkouts() {
+    // Remove all workouts from the workouts array
+    this.workouts = [];
+
+    // Remove all workout markers from the map
+    for (const workout of this.workouts) {
+      workout.marker.remove();
+    }
+
+    // Clear the workouts container
+    containerWorkouts.innerHTML = '';
+
+    // Clear local storage
+    this._setLocalStorage();
   }
 
   _getPosition() {
@@ -234,6 +253,8 @@ class App {
         `${workout.type === 'running' ? '🏃‍♂️' : '🚴‍♀️'} ${workout.description}`
       )
       .openPopup();
+
+    workout.marker = workout;
   }
 
   _renderWorkout(workout) {
@@ -285,14 +306,15 @@ class App {
       </div>
         </li>`;
 
-    html += `
+    /* html += `
     <div class="fixedButtons">
     <button class="deleteButton" data-id="${workout.id}">Delete</button>
     <button>Edit</button>
     <button class="deleteAll"> Delete All</button>
     </div>
-  </li>
-  `;
+    </li>
+`; */
+
     form.insertAdjacentHTML('afterend', html);
   }
 
@@ -314,7 +336,11 @@ class App {
   }
 
   _setLocalStorage() {
-    localStorage.setItem('workouts', JSON.stringify(this.workouts));
+    const workoutWithoutMarker = this.workouts.map(workout => {
+      const { marker, ...workoutWithoutMarker } = workout;
+      return workoutWithoutMarker;
+    });
+    localStorage.setItem('workouts', JSON.stringify(workoutWithoutMarker));
   }
   _getLocalStorage() {
     const data = JSON.parse(localStorage.getItem('workouts'));
