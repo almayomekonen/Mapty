@@ -61,6 +61,11 @@ a:visited {
   justify-content: center;
 }
 @media screen and (max-width: 500px) and (min-width: 200px) {
+  .workouts__delete-all {
+    padding: 5px;
+    font-weight: bold;
+    background-color: #90ee90c4;
+  }
   a {
     display: block;
     padding: 7px;
@@ -274,18 +279,18 @@ button {
 .cycling-popup .leaflet-popup-content-wrapper {
   border-left: 5px solid var(--color-brand--1);
 }
-button {
-  font-weight: bold;
-  font-size: 15px;
-  width: 65px;
-}
-.fixedButtons {
+
+/* .fixedButtons {
   display: flex;
   justify-content: center;
   gap: 30px;
   margin-bottom: 20px;
-}
+} */
+
 #submitBtn {
+  width: 40px;
   position: relative;
-  left: 7rem;
+  left: 7.4rem;
+  font-weight: bold;
+  background-color: #90ee90c4;
 }
