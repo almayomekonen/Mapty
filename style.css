@@ -61,6 +61,10 @@ a:visited {
   justify-content: center;
 }
 @media screen and (max-width: 500px) and (min-width: 200px) {
+  a {
+    display: block;
+    padding: 7px;
+  }
   .centerDeleteAllButton {
     display: flex;
     justify-content: center;
