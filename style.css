@@ -95,6 +95,17 @@ a:visited {
 }
 
 @media screen and (max-width: 500px) and (min-width: 200px) {
+  .form {
+    background-color: var(--color-dark--2);
+    border-radius: 5px;
+    padding: 1.5rem 2.75rem;
+    margin-bottom: 1.75rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem 2.5rem;
+    height: 15.25rem;
+    transition: all 0.5s, transform 1ms;
+  }
   .form__label {
     flex: 0 0 50%;
     font-weight: 600;
@@ -151,7 +162,7 @@ a:visited {
   }
   .sidebar {
     width: 87.5vw;
-    height: 50vh;
+    height: 55vh;
   }
   #section {
     flex-direction: column;
