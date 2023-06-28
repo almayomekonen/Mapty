@@ -95,6 +95,10 @@ a:visited {
 }
 
 @media screen and (max-width: 500px) and (min-width: 200px) {
+  .form__label {
+    flex: 0 0 50%;
+    font-weight: 600;
+  }
   .description {
     text-align: center;
   }
@@ -253,7 +257,7 @@ button {
 
 .form__label {
   flex: 0 0 50%;
-
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
