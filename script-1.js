@@ -153,9 +153,13 @@ class App {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     }).addTo(this.map);
-
     // handling clicks on The map
     this.map.on('click', this._ShowForm.bind(this));
+
+    this.map.on('click', () => {
+      document.querySelector('.pressMap').style.display = 'none';
+    });
+
     this.workouts.forEach(work => {
       this._renderWorkoutMarker(work);
     });

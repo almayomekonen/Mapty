@@ -44,7 +44,7 @@ a:visited {
 
 .sidebar {
   width: 44vw;
-  height: 93vh;
+  height: 95.3vh;
   background-color: var(--color-dark--1);
   padding: 3rem 5rem 4rem 5rem;
   display: flex;
@@ -357,4 +357,12 @@ button {
   font-weight: bold;
   background-color: #90ee90c4;
   color: black;
+}
+
+.pressMap {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-top: 60px;
+  font-size: 30px;
 }
