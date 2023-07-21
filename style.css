@@ -168,6 +168,10 @@ a:visited {
     flex-direction: column;
     width: 87.5vw;
   }
+  .form__input--type select {
+    height: 100%;
+    overflow-y: auto;
+  }
 }
 
 .logo {

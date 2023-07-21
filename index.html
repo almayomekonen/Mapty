@@ -1,118 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="shortcut icon" type="image/png" href="/projects-pages/Map Your Workout/icon.png" />
 
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap"
-      rel="stylesheet"
-    />
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="shortcut icon" type="image/png" href="/projects-pages/Map Your Workout/icon.png" />
 
-    <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
 
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-      crossorigin=""
-    />
-    <script
-      defer
-      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-      crossorigin=""
-    ></script>
+  <link rel="stylesheet" href="style.css" />
 
-    <title>mapty // Map your workouts</title>
-  </head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <script defer src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
-  <body>
+  <title>mapty // Map your workouts</title>
+</head>
 
-    <section id="section">
-     
-      <div class="sidebar">
-        <img src="logo.png" alt="Logo" class="logo" />
+<body>
 
-         
+  <section id="section">
 
-        <ul class="workouts">
-          <form class="form hidden">
-            <div class="form__row">
-              <label class="form__label">Type</label>
-              <select class="form__input form__input--type">
-                <option value="running">Running</option>
-                <option value="cycling">Cycling</option>
-              </select>
-            </div>
-            <div class="form__row">
-              <label class="form__label">Distance</label>
+    <div class="sidebar">
+      <img src="logo.png" alt="Logo" class="logo" />
 
-              <input
-                class="form__input form__input--distance"
-                placeholder="km"
-              />
-            </div>
-            
-            <div class="form__row">
-              <label class="form__label">Duration</label>
 
-              <input
-                class="form__input form__input--duration"
-                placeholder="min"
-              />
-            </div>
 
-            <div class="form__row">
-              <label class="form__label">Cadence</label>
+      <ul class="workouts">
+        <form class="form hidden">
+          <div class="form__row">
+            <label class="form__label">Type</label>
+            <select class="form__input form__input--type">
+              <option value="running">Running</option>
+              <option value="cycling">Cycling</option>
+            </select>
+          </div>
+          <div class="form__row">
+            <label class="form__label">Distance</label>
 
-              <input
-                class="form__input form__input--cadence"
-                placeholder="step/min"
-              />
-            </div>
+            <input class="form__input form__input--distance" placeholder="km" />
+          </div>
 
-            <div class="form__row form__row--hidden">
-              <label class="form__label">Elev Gain</label>
-              <input
-                class="form__input form__input--elevation"
-                placeholder="meters"
-              />
-            </div>
+          <div class="form__row">
+            <label class="form__label">Duration</label>
 
-          <div class="Gobutton"> <button  type="button" id="submitBtn">Go</button> </div> 
-          </form>
-          <div class="pressMap">press on The Map To Start!</div>
-         <table class="workouts__list hidden__list">
-         <tbody id="workoutsTableBody">
-         </tbody>
-         </table>
-        </ul>
+            <input class="form__input form__input--duration" placeholder="min" />
+          </div>
 
-        <p class="copyright">
-          &copy; Copyright by
-          <a
-            class="twitter-link"
-            target="_blank"
-            href="//github.com/almayomekonen"
-            >Almayo Mekonen Workout-App</a
-          >
-           <div class="centerDeleteAllButton">
-          <button class="workouts__delete-all">Delete</button>
-       <button class="workouts__listButton">workouts List</button>
-        </div>
-        </p>
+          <div class="form__row">
+            <label class="form__label">Cadence</label>
+
+            <input class="form__input form__input--cadence" placeholder="step/min" />
+          </div>
+
+          <div class="form__row form__row--hidden">
+            <label class="form__label">Elev Gain</label>
+            <input class="form__input form__input--elevation" placeholder="meters" />
+          </div>
+
+          <div class="Gobutton"> <button type="button" id="submitBtn">Go</button> </div>
+        </form>
+        <div class="pressMap">press on The Map To Start!</div>
+        <table class="workouts__list hidden__list">
+          <tbody id="workoutsTableBody">
+          </tbody>
+        </table>
+      </ul>
+
+      <p class="copyright">
+        &copy; Copyright by
+        <a class="twitter-link" target="_blank" href="//github.com/almayomekonen">Almayo Mekonen Workout-App</a>
+      <div class="centerDeleteAllButton">
+        <button class="workouts__delete-all">Delete</button>
+        <button class="workouts__listButton">workouts List</button>
       </div>
-      <div id="map"></div>
-    </section>
-    <!-- --------------------------- -->
-    
-       
-        
-     
-<!-- --------------------------------- -->
-    <script defer src="/projects-pages/Map Your Workout/script-1.js"></script>
-  </body>
+      </p>
+    </div>
+    <div id="map"></div>
+  </section>
+  <!-- --------------------------- -->
+
+
+
+
+  <!-- --------------------------------- -->
+  <script defer src="/projects-pages/Map Your Workout/script-1.js"></script>
+</body>
+
 </html>
