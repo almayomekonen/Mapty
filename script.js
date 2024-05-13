@@ -66,12 +66,7 @@ class Cycling extends workout {
     return this.speed;
   }
 }
-/* 
-const run1 = new Running([39, -12], 5.2, 24, 178);
-const cycling1 = new Cycling([39, -12], 27, 95, 523);
-console.log(run1, cycling1);
- */
-///////////////////////////////////////////
+
 // APPLICATION ARCHITECTURE
 
 const form = document.querySelector('.form');
@@ -106,8 +101,8 @@ class App {
 
     document
       .querySelector('#submitBtn')
-      .addEventListener('click', this._newWorkout.bind(this)); // event For The Go btn
-    form.addEventListener('submit', this._newWorkout.bind(this)); // event For The submit(enter)
+      .addEventListener('click', this._newWorkout.bind(this));
+    form.addEventListener('submit', this._newWorkout.bind(this));
     inputType.addEventListener('change', this._toggleElevetionField);
     containerWorkouts.addEventListener('click', this._MoveToPopup.bind(this));
   }
@@ -196,7 +191,6 @@ class App {
     e.preventDefault();
 
     // Get data from the form
-
     const type = inputType.value;
     const distance = +inputDistance.value;
     const duration = +inputDuration.value;
@@ -205,14 +199,10 @@ class App {
 
     // check if data is valid
 
-    // if workout running, create running object
     if (type === 'running') {
       const cadence = +inputCadence.value;
       // Check if data valid
       if (
-        /*  !Number.isFinite(distance) ||
-        !Number.isFinite(duration) ||
-        !Number.isFinite(duration) */
         !validInputs(distance, duration, cadence) ||
         !allPositive(distance, duration, cadence)
       )
@@ -353,9 +343,6 @@ class App {
       animate: true,
       pan: { duration: 1 },
     });
-
-    // using the public interface
-    // workout.click();
   }
 
   _setLocalStorage() {

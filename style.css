@@ -1,7 +1,6 @@
 :root {
   --color-brand--1: #ff6347;
   --color-brand--2: #ffd700;
-
   --color-dark--1: #2d3439;
   --color-dark--2: #42484d;
   --color-light--1: #aaa;
@@ -41,10 +40,9 @@ a:visited {
 }
 
 /* SIDEBAR */
-
 .sidebar {
   width: 44vw;
-  height: 95.3vh;
+  height: 93.6vh;
   background-color: var(--color-dark--1);
   padding: 3rem 5rem 4rem 5rem;
   display: flex;
@@ -54,7 +52,6 @@ a:visited {
 #section {
   display: flex;
   width: 100vw;
-  /*  flex-direction: column; */
 }
 .centerDeleteAllButton {
   display: flex;
@@ -302,7 +299,6 @@ button {
   text-align: center;
   color: var(--color-light--1);
 }
-
 .twitter-link:link,
 .twitter-link:visited {
   color: var(--color-light--1);
@@ -321,7 +317,6 @@ button {
   background-color: var(--color-light--1);
 }
 
-/* Popup width is defined in JS using options */
 .leaflet-popup .leaflet-popup-content-wrapper {
   background-color: var(--color-dark--1);
   color: var(--color-light--2);
@@ -346,27 +341,30 @@ button {
   border-left: 5px solid var(--color-brand--1);
 }
 
-/* .fixedButtons {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 20px;
-} */
-
 #submitBtn {
-  width: 50px;
-  padding: 2px;
+  width: 90%;
+  max-width: 20rem;
+  padding: 5px;
   position: relative;
-  left: 7.4rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
   font-weight: bold;
   background-color: #90ee90c4;
   color: black;
 }
-
+#submitBtn:hover{
+  background-color: #90ee907c;
+  color: #fff;
+}
 .pressMap {
   display: flex;
   justify-content: center;
   text-align: center;
   margin-top: 60px;
   font-size: 30px;
+  margin: 0 auto;
 }
+/* .start-exrecise-button{
+  margin: 0 auto;
+} */
